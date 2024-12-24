@@ -1,17 +1,17 @@
-import classes from "./page.module.css";
-import Image from "next/image";
-import { getMeal } from "@/lib/meals";
-import { notFound } from "next/navigation";
+import classes from './page.module.css';
+import Image from 'next/image';
+import { getMeal } from '@/lib/mymeals';
+import { notFound } from 'next/navigation';
 
-export default function MealDetail({ params }) {
-  const meal = getMeal(params.param);
+export default async function MealDetail({ params }) {
+  const meal = await getMeal(params.param);
 
   // ganti pesan error occured dengan closest not found page
   if (!meal) {
     notFound();
   }
 
-  meal.instructions = meal.instructions.replace(/\n/g, "<br />");
+  meal.instructions = meal.instructions.replace(/\n/g, '<br />');
   return (
     <>
       <header className={classes.header}>
