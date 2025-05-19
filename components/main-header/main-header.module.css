@@ -28,15 +28,18 @@
   .logoContainer h1 {
     font-size:1rem;
   }
+  .nav {
+    display: none;
+  }
   .nav ul {
+    display:flex;
     list-style: none;
     margin: 0;
     padding: 0;
     
     gap: 1.5rem;
-    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
-    display:none;
   }
   
   .burgerMenu {
@@ -76,7 +79,7 @@
     text-decoration: none;
     color: #ddd6cb;
     font-weight: bold;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
     border-radius: 0.5rem;
   }
   
@@ -89,7 +92,7 @@
       text-shadow: 0 0 18px rgba(248, 190, 42, 0.8);
     }
    
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .header {
       padding: 2rem 10%;
     }

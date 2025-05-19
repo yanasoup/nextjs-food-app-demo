@@ -1,23 +1,23 @@
 .header {
     display: flex;
     gap: 2rem;
-    margin: 3rem auto;
-    max-width: 75rem;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 0 24px;
+    max-width: 80rem;
+    padding: 0 1.5rem; 
+    margin: 0 auto;
   }
 
   
   .slideshowContainer {
-    flex:1 0 400px;    
+    flex:1 0 320px;    
     width: clamp(20rem, 47.33vw,35.5rem);
     aspect-ratio: 1/1;
     
   }
   .header .heroTitle {
-    flex:1 0 400px;       
+    flex:1 0 320px;       
     align-items: start;
     justify-content: center; 
   }
