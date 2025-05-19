@@ -1,23 +1,29 @@
 .header {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
     margin: 3rem auto;
-    width: 90%;
     max-width: 75rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
   }
+
   
-  .slideshow {
-    width: 40rem;
-    height: 25rem;
+  .slideshowContainer {
+    flex:1 0 400px;    
+    width: clamp(20rem, 47.33vw,35.5rem);
+    aspect-ratio: 1/1;
+    
   }
-  
-  .hero {
-    color: #ddd6cb;
-    font-size: 1.5rem;
+  .header .heroTitle {
+    flex:1 0 400px;       
+    align-items: start;
+    justify-content: center; 
   }
-  
-  .hero h1 {
-    font-size: 2rem;
+    
+  .heroTitle h1 {
+    font-size: clamp(1.25rem, 3.33vw, 2.5rem);
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.15rem;
@@ -27,9 +33,12 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
+  .heroTitle p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color:white;
+  }
   .cta {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     display: flex;
     gap: 1rem;
   }
@@ -67,9 +76,13 @@
     display: flex;
     flex-direction: column;
     color: #ddd6cb;
-    font-size: 1.5rem;
+    
     max-width: 50rem;
     width: 90%;
     margin: 2rem auto;
     text-align: center;
+  }
+
+  .section h2, .section p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
   }

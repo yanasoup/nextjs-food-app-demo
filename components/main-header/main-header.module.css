@@ -3,32 +3,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem 1rem;
+    gap: 1rem;
   }
-  
-  @media (min-width: 768px) {
-    .header {
-      padding: 2rem 10%;
-    }
-  }
-  
-  .nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1.5rem;
-    /* font-family: 'Montserrat', sans-serif; */
-    font-size: 1.25rem;
-  }
-  
-  
-  
-  
-  .logo {
-    display: flex;
+  .logoContainer {
+    display:flex;
+    gap: 1rem;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
+  }
+  .logoContainer a {
     text-decoration: none;
     color: #ddd6cb;
     font-weight: bold;
@@ -37,10 +19,92 @@
     text-transform: uppercase;
     font-size: 1.5rem;
   }
-  
-  .logo img {
+  .logoContainer img {
     width: 5rem;
     height: 5rem;
     object-fit: contain;
     filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
   }
+  .logoContainer h1 {
+    font-size:1rem;
+  }
+  .nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    gap: 1.5rem;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size: 1.25rem;
+    display:none;
+  }
+  
+  .burgerMenu {
+    display: block;
+    cursor: pointer;
+  }
+
+
+  .mobileMenu {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 1.5rem 0;
+    
+    /* transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;     */
+  }
+.mobileMenu button {
+  position:absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+
+}
+
+  .mobileLink {
+    text-decoration: none;
+    color: #ddd6cb;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+  
+    .mobileLink:hover,
+    .mobileLink:active {
+      background: linear-gradient(90deg, #ff8a05, #f9b331);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 18px rgba(248, 190, 42, 0.8);
+    }
+   
+  @media (min-width: 768px) {
+    .header {
+      padding: 2rem 10%;
+    }
+    .header h1 {
+      font-size:2.5rem;
+    }
+    .nav {
+      display: flex;
+    }
+    .burgerMenu {
+      display: none;
+    }    
+  }
+  
+  
+  
+  
+  

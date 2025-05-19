@@ -40,3 +40,9 @@ body {
   font-weight: 500;
   color: #ddd8d8;
 }
+
+.custom-container {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}

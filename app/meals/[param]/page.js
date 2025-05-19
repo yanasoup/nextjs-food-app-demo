@@ -1,6 +1,7 @@
 import classes from './page.module.css';
 import Image from 'next/image';
-import { getMeal } from '@/lib/mymeals';
+// import { getMeal } from '@/lib/mymeals'; // mysql version
+import { getMeal } from '@/lib/meals'; // mysql version
 import { notFound } from 'next/navigation';
 
 export default async function MealDetail({ params }) {
@@ -26,14 +27,14 @@ export default async function MealDetail({ params }) {
           <p className={classes.summary}>{meal.summary}</p>
         </div>
       </header>
-      <main>
+      <section className={classes.customContainer}>
         <p
           className={classes.instructions}
           dangerouslySetInnerHTML={{
             __html: meal.instructions,
           }}
         ></p>
-      </main>
+      </section>
     </>
   );
 }
