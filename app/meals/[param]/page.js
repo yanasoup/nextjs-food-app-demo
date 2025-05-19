@@ -1,7 +1,7 @@
 import classes from './page.module.css';
 import Image from 'next/image';
-// import { getMeal } from '@/lib/mymeals'; // mysql version
-import { getMeal } from '@/lib/meals'; // mysql version
+import { getMeal } from '@/lib/mymeals'; // mysql version
+// import { getMeal } from '@/lib/meals'; // sqllite version
 import { notFound } from 'next/navigation';
 
 export default async function MealDetail({ params }) {
