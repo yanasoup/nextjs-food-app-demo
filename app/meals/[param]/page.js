@@ -1,18 +1,37 @@
+'use client';
 import classes from './page.module.css';
 import Image from 'next/image';
-import { getMeal } from '@/lib/mymeals'; // mysql version
+// import { getMeal } from '@/lib/mymeals'; // mysql version
 // import { getMeal } from '@/lib/meals'; // sqllite version
 import { notFound } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
 
-export default async function MealDetail({ params }) {
-  const meal = await getMeal(params.param);
+export default function MealDetail({ params }) {
+  // const meal = await getMeal(params.param);
+  const [meal, setMeal] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log('params', params);
+      const { data, error } = await supabase
+        .from('meals')
+        .select('*')
+        .eq('slug', params.param);
+      if (error) console.error(error);
+      else {
+        const tmpMeal = data[0];
+        tmpMeal.instructions = tmpMeal.instructions.replace(/\n/g, '<br />');
+        setMeal(tmpMeal);
+      }
+    };
+    fetchData();
+  }, [params]);
 
   // ganti pesan error occured dengan closest not found page
   if (!meal) {
     notFound();
   }
-
-  meal.instructions = meal.instructions.replace(/\n/g, '<br />');
+  // meal.instructions = meal.instructions.replace(/\n/g, '<br />');
   return (
     <>
       <header className={classes.header}>

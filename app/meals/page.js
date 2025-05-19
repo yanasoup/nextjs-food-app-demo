@@ -1,12 +1,25 @@
+'use client';
 import Link from 'next/link';
 import classes from './page.module.css';
 import MealsGrid from '@/components/meals/meals-grid';
-import { getMeals } from '@/lib/mymeals'; // mysql version
+// import { getMeals } from '@/lib/mymeals'; // mysql version
 // import { getMeal } from '@/lib/meals'; // sqllite version
 import { Suspense } from 'react';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
 
 async function Meals() {
-  const meals = await getMeals();
+  // const meals = await getMeals();
+  const [meals, setMeals] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase.from('meals').select('*');
+      if (error) console.error(error);
+      else setMeals(data);
+    };
+    fetchData();
+  }, []);
+
   return <MealsGrid meals={meals} />;
 }
 
